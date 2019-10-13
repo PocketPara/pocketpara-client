@@ -1,0 +1,7 @@
+{
+    "views": {
+        "login": {
+            "login": "Login"
+        }
+    }
+}
