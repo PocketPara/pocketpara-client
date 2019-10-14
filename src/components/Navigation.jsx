@@ -2,20 +2,20 @@
  * @ Author: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
  * @ Create Time: 2019-10-14 22:21:09
  * @ Modified by: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
- * @ Modified time: 2019-10-14 23:43:14
+ * @ Modified time: 2019-10-14 23:56:00
  * @ Description: The main navigation (that pops out on the left side)
  *                also redirects if user is logged out, since its only on internal sites
  */
 
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 import { NavigationWrapper, NavigationShadowToggleBox, NavigationLogo, NavigationOptionList, NavigationGroup, NavigationItem } from '../styles/components/Navigation.style';
 import Logo from "../assets/rdicon_512-blue.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartArea, faPlusCircle, faAmbulance, faChartPie, faSearch, faCogs, faUser, faTruck, faBullhorn, faCog, faNotesMedical, faHeartbeat, faTasks, faHatWizard } from '@fortawesome/free-solid-svg-icons';
 import CurrentLanguage from "../helpers/CurrentLanguage";
 
-export default class Navigation extends React.Component {
+class Navigation extends React.Component {
 
     state = {
         redirect: []
@@ -26,6 +26,11 @@ export default class Navigation extends React.Component {
         if(localStorage.getItem('pp_token') == null) {
             this.setState({ redirect: <Redirect to="/login" />});
         }
+    }
+
+    navigateTo = target => {
+        this.props.onToggle();
+        this.props.history.push(target);
     }
 
     render() {
@@ -43,19 +48,19 @@ export default class Navigation extends React.Component {
                     <div><FontAwesomeIcon icon={ faChartArea } /></div>
                     <span>{ CurrentLanguage().navigation.stats }</span>
                 </NavigationGroup>
-                <NavigationItem bgColor="#4285f4">
+                <NavigationItem onClick={()=>{this.navigateTo("/stats/add-shift") }} bgColor="#4285f4">
                     <div><FontAwesomeIcon icon={ faPlusCircle } /></div>
                     <span>{ CurrentLanguage().navigation.addShift }</span>
                 </NavigationItem>
-                <NavigationItem bgColor="#4285f4">
+                <NavigationItem onClick={()=>{this.navigateTo("/stats/my-shifts") }} bgColor="#4285f4">
                     <div><FontAwesomeIcon icon={ faAmbulance } /></div>
                     <span>{ CurrentLanguage().navigation.myShifts }</span>
                 </NavigationItem>
-                <NavigationItem bgColor="#4285f4">
+                <NavigationItem onClick={()=>{this.navigateTo("/stats/overview") }} bgColor="#4285f4">
                     <div><FontAwesomeIcon icon={ faChartPie } /></div>
                     <span>{ CurrentLanguage().navigation.statOverview }</span>
                 </NavigationItem>
-                <NavigationItem bgColor="#4285f4">
+                <NavigationItem onClick={()=>{this.navigateTo("/stats/serach-shift") }} bgColor="#4285f4">
                     <div><FontAwesomeIcon icon={ faSearch } /></div>
                     <span>{ CurrentLanguage().navigation.searchShift }</span>
                 </NavigationItem>
@@ -65,19 +70,19 @@ export default class Navigation extends React.Component {
                     <div><FontAwesomeIcon icon={ faCogs } /></div>
                     <span>{ CurrentLanguage().navigation.settings }</span>
                 </NavigationGroup>
-                <NavigationItem bgColor="#00d274">
+                <NavigationItem onClick={()=>{this.navigateTo("/settings/account") }} bgColor="#00d274">
                     <div><FontAwesomeIcon icon={ faUser } /></div>
                     <span>{ CurrentLanguage().navigation.manageAccount }</span>
                 </NavigationItem>
-                <NavigationItem bgColor="#00d274">
+                <NavigationItem onClick={()=>{this.navigateTo("/settings/cars") }} bgColor="#00d274">
                     <div><FontAwesomeIcon icon={ faTruck } /></div>
                     <span>{ CurrentLanguage().navigation.manageCars }</span>
                 </NavigationItem>
-                <NavigationItem bgColor="#00d274">
+                <NavigationItem onClick={()=>{this.navigateTo("/settings/keywords") }} bgColor="#00d274">
                     <div><FontAwesomeIcon icon={ faBullhorn } /></div>
                     <span>{ CurrentLanguage().navigation.manageKeywords }</span>
                 </NavigationItem>
-                <NavigationItem bgColor="#00d274">
+                <NavigationItem onClick={()=>{this.navigateTo("/settings/app") }} bgColor="#00d274">
                     <div><FontAwesomeIcon icon={ faCog } /></div>
                     <span>{ CurrentLanguage().navigation.appSettings }</span>
                 </NavigationItem>
@@ -87,15 +92,15 @@ export default class Navigation extends React.Component {
                     <div><FontAwesomeIcon icon={ faNotesMedical } /></div>
                     <span>{ CurrentLanguage().navigation.tools }</span>
                 </NavigationGroup>
-                <NavigationItem bgColor="#ff2b2e">
+                <NavigationItem onClick={()=>{this.navigateTo("/tools/ecg-criteria") }} bgColor="#ff2b2e">
                     <div><FontAwesomeIcon icon={ faHeartbeat } /></div>
                     <span>{ CurrentLanguage().navigation.ecgCriteria }</span>
                 </NavigationItem>
-                <NavigationItem bgColor="#ff2b2e">
+                <NavigationItem onClick={()=>{this.navigateTo("/tools/algorithms") }} bgColor="#ff2b2e">
                     <div><FontAwesomeIcon icon={ faTasks } /></div>
                     <span>{ CurrentLanguage().navigation.algorithms }</span>
                 </NavigationItem>
-                <NavigationItem bgColor="#ff2b2e">
+                <NavigationItem onClick={()=>{this.navigateTo("/tools/scores") }} bgColor="#ff2b2e">
                     <div><FontAwesomeIcon icon={ faHatWizard } /></div>
                     <span>{ CurrentLanguage().navigation.scores }</span>
                 </NavigationItem>
@@ -109,3 +114,5 @@ export default class Navigation extends React.Component {
         </div>;
     }
 }
+
+export default withRouter(Navigation);
