@@ -29,5 +29,21 @@
             "onToSNotAccepted": "Sorry, but if you want to use this App you need to accept the ToS and Privacy Policy.",
             "onSuccess": "Your account was created! You will be redirected to the login within 5 seconds!"
         }
+    },
+    "navigation": {
+        "stats": "My Statistics",
+        "addShift": "Add a shift",
+        "myShifts": "My Shifts",
+        "statOverview": "Statistics overview",
+        "searchShift": "Search shifts",
+        "settings": "Settings",
+        "manageAccount": "Manage Account",
+        "manageCars": "Manage Cars",
+        "manageKeywords": "Manage Keywords",
+        "appSettings": "App Settings",
+        "tools": "Tools",
+        "ecgCriteria": "ECG Criteria",
+        "algorithms": "Algorithms",
+        "scores": "Scores"
     }
 }

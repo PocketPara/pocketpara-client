@@ -2,7 +2,7 @@
  * @ Author: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
  * @ Create Time: 2019-10-14 00:17:34
  * @ Modified by: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
- * @ Modified time: 2019-10-14 20:07:30
+ * @ Modified time: 2019-10-14 22:19:04
  * @ Description: The login view
  */
 
@@ -24,6 +24,7 @@ class ViewLogin extends React.Component {
         password: "",
         alerts: []
     }
+
 
     componentDidMount() {
         // if user is already logged in, redirect him back to internal area
@@ -131,6 +132,11 @@ class ViewLogin extends React.Component {
                     className="fullwidth">
                     {CurrentLanguage().views.login.btnLogin}
                 </ViewLoginButton>
+
+                { /* <ViewLoginGoogleButton>
+                    Login with Google
+                </ViewLoginGoogleButton>*/ }
+
                 <ViewLoginSignupButton onClick={ this.gotoRegister } >
                     {CurrentLanguage().views.login.btnCreateNew}
                 </ViewLoginSignupButton>

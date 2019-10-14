@@ -8,6 +8,9 @@ import ViewLogin from './views/ViewLogin';
 import Axios from 'axios';
 import { getBaseUrl } from './config/ApiConfig';
 import ViewRegister from './views/ViewRegister';
+import Navigation from './components/Navigation';
+import Titlebar from './components/Titlebar';
+import { faCompass } from '@fortawesome/free-solid-svg-icons'
 
 // Set up axios config globally
 Axios.defaults.baseURL = getBaseUrl();
@@ -23,6 +26,9 @@ function App() {
         <Switch>
           <Route exact path="/login" component={ ViewLogin } />
           <Route exact path="/register" component={ ViewRegister } />
+          <Route>
+            <Titlebar title="Navigation" icon={ faCompass } color="#4285f4"/>
+          </Route>
         </Switch>
       </Router>
     </div>

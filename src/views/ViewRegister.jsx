@@ -2,7 +2,7 @@
  * @ Author: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
  * @ Create Time: 2019-10-14 20:05:16
  * @ Modified by: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
- * @ Modified time: 2019-10-14 22:00:05
+ * @ Modified time: 2019-10-14 22:18:24
  * @ Description: The register few that allows new users to create an account
  */
 import React from 'react';
