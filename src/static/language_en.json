@@ -1,7 +1,33 @@
 {
     "views": {
         "login": {
-            "login": "Login"
+            "boxUsername": "Username",
+            "boxPassword": "Password",
+            "btnLogin": "Login",
+            "btnCreateNew": "sign up instead",
+            "onSuccess": "Successful! You will be redirected soon...",
+            "onBadRequest": "The server denied the request. Please check your inputs and try again.",
+            "onInvalidPassword": "The entered password is invalid. Please check your inputs and try again.",
+            "onRequestError": "There has been an error while attempting to connect to the server. Please check your connection and try again.",
+            "onServerError": "The sever had trouble responding to your request. Please check your inputs and try again...",
+            "onUserNotFound": "The username you entered does not exist. Please check your inputs or create a new account."
+        },
+        "register": {
+            "viewTitle": "Create a new account",
+            "boxUsername": "Username",
+            "boxPassword": "Password",
+            "boxPasswordRepeat": "Repeat Password",
+            "boxEmail": "E-Mail address",
+            "checkAgreeToS": "I've read and accept the",
+            "btnRegister": "Sign up",
+            "btnLoginInstead": "sign in instead",
+            "onBadRequest": "The server denied the request. Please check your inputs and try again.",
+            "onRequestError":"There has been an error while attempting to connect to the server. Please check your connection and try again.",
+            "onServerError": "The sever had trouble responding to your request. Please check your inputs and try again...",
+            "onUsernameTaken": "The username you entered is already taken. Please use a different one.",
+            "onPasswordsDontMatch": "The passwords you entered don't match.",
+            "onToSNotAccepted": "Sorry, but if you want to use this App you need to accept the ToS and Privacy Policy.",
+            "onSuccess": "Your account was created! You will be redirected to the login within 5 seconds!"
         }
     }
 }

@@ -1,12 +1,31 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 :root {
     --var-color-primary: #4285f4;
+    --var-color-primary-alt: #3a6cbe;
+
+    --var-color-error: #e4161b;
+    --var-color-warning: #ffc40c;
+    --var-color-success: #00d274;
+
+    --var-color-dark: #363636;
+
     --var-color-red: #e74424;
+    --var-color-lightGrey: #cacaca;
+
+    --var-border-radius: 4px;
+}´
+*:focus {
+    outline: none !important;
+}
+* {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0); 
+    -webkit-tap-highlight-color: transparent;  // i.e. Nexus5/Chrome and Kindle Fire HD 7''
 }
 body {
     margin: 0;
     padding: 0;
     font-family: 'Open Sans', sans-serif;
+    
 }
 
 // @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto&display=swap');
