@@ -8,6 +8,7 @@ export const TitlebarWrapper = styled.div`
     box-sizing: border-box;
     width: 100vw;
     position: fixed;
+    top: 0;
     overflow: hidden;
     margin: 0;
     padding: 0.4em 1em;

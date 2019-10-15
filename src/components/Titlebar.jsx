@@ -10,6 +10,11 @@ export default class Titlebar extends React.Component {
         navActive: false
     }
 
+    constructor(...props) {
+        super(...props);
+        window.themeColor = this.props.color || '#bababa';
+    }
+
     toggleNav = () => {
         this.setState({
             navActive: !this.state.navActive

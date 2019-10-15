@@ -28,6 +28,19 @@
             "onPasswordsDontMatch": "The passwords you entered don't match.",
             "onToSNotAccepted": "Sorry, but if you want to use this App you need to accept the ToS and Privacy Policy.",
             "onSuccess": "Your account was created! You will be redirected to the login within 5 seconds!"
+        },
+        "settings": {
+            "account": {
+                "txtTitle": "My Account Information",
+                "txtUser": "Username",
+                "txtMail": "E-Mail",
+                "txtFullname": "Full name",
+                "txtVerified": "Verification",
+                "txtVerifiedTrue": "Verified",
+                "txtVerifiedFalse": "Not Verified",
+                "txtLanguage": "Language",
+                "txtRoles": "Permissions"
+            }
         }
     },
     "navigation": {

@@ -11,6 +11,7 @@ import ViewRegister from './views/ViewRegister';
 import Titlebar from './components/Titlebar';
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import CurrentLanguage from './helpers/CurrentLanguage';
+import ViewAccount from './views/settings/ViewAccount';
 
 // Set up axios config globally
 Axios.defaults.baseURL = getBaseUrl();
@@ -37,6 +38,7 @@ function App() {
         <Switch>
           <Route exact path="/login" component={ ViewLogin } />
           <Route exact path="/register" component={ ViewRegister } />
+          <Route exact path="/settings/account" component={ ViewAccount } />
         </Switch>
 
       </Router>
