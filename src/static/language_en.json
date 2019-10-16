@@ -53,14 +53,21 @@
                 "txtAddNew": "Add new",
                 "txtImport": "Import from QR-Code",
                 "addForm": {
-                    "addNew": "Add new car",
+                    "lblTitle": "Add new car",
                     "lblCode": "Identification code/name/id",
                     "lblCodeDefault": "Enter car code here...",
                     "lblDesc": "Description / Infotext",
                     "lblDescDefault": "e.g. Ambulance, Doctor, ...",
                     "btnSave": "Save",
                     "onSuccess": "The new car was saved!",
-                    "onServerError": "The server denied your request. Check your inputs and try agian.",
+                    "onServerError": "The server denied your request. Check your inputs and try again.",
+                    "onError": "Error connecting to the server. Please check your Internet connection and try again."
+                },
+                "editForm": {
+                    "lblTitle": "Edit car",
+                    "btnSave": "Save",
+                    "onSuccess": "The changes were saved!",
+                    "onServerError": "The server denied your request. Check your inputs and try again.",
                     "onError": "Error connecting to the server. Please check your Internet connection and try again."
                 },
                 "onDeleteSuccess": "The car was deleted successfully!"

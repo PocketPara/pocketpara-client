@@ -9,6 +9,7 @@ import { faSyncAlt, faPlusCircle, faQrcode, faPen, faTrash, faArrowUp, faArrowDo
 import QrScannerComponent from '../../components/QrScanner';
 import AddCarModal from '../../components/modals/AddCarModal';
 import { ViewCarsOptionRow } from '../../styles/views/ViewCars.style';
+import EditCarModal from '../../components/modals/EditCarModal';
 
 export default class ViewCars extends React.Component {
 
@@ -109,7 +110,7 @@ export default class ViewCars extends React.Component {
                 <td>{currentCar.code}</td>
                 <td>{currentCar.description}</td>
                 <ViewCarsOptionRow>
-                    <FontAwesomeIcon icon={ faPen } />
+                    <FontAwesomeIcon icon={ faPen } onClick={()=>{this.handleEditClick(currentCar.id)}}/>
                     <FontAwesomeIcon icon={ faTrash } onClick={()=>{this.handleDeleteClick(currentCar.id)}} />
                     &nbsp;
                     { (i > 0) && <FontAwesomeIcon icon={ faArrowUp } onClick={()=>{this.handleMoveUp(i)}}/> }
@@ -131,13 +132,21 @@ export default class ViewCars extends React.Component {
         this.fetchData();
     }
 
-    getAddModal = callback =>{ 
+    getAddModal = callback => { 
         return <AddCarModal key={this.state.modal.length} onDismiss={callback} />;
+    }
+    getEditModal = (id, callback) => {
+        return <EditCarModal carId={id} key={this.state.modal.length} onDismiss={callback} />
     }
 
     handleAddClick = () => {
         this.setState({
             modal: [...this.state.modal, this.getAddModal( this.onRefresh )]
+        });
+    }
+    handleEditClick = id => {
+        this.setState({
+            modal: [...this.state.modal, this.getEditModal( id, this.onRefresh )]
         });
     }
 
