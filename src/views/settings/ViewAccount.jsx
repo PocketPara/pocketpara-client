@@ -2,12 +2,12 @@
  * @ Author: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
  * @ Create Time: 2019-10-15 17:02:07
  * @ Modified by: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
- * @ Modified time: 2019-10-16 13:46:41
+ * @ Modified time: 2019-10-16 21:37:51
  * @ Description: The view for /settings/account
  */
 
 import React from 'react';
-import { View, ViewContent, ContentTitle, Content, Table, LoaderContainer, Button, Dropdown } from '../../styles/UI.style';
+import { View, ViewContent, ContentTitle, Content, Table, Button, Dropdown } from '../../styles/UI.style';
 import CurrentLanguage from "../../helpers/CurrentLanguage";
 import ContentLoader from '../../components/Loader';
 import { UserController } from '../../controllers/UserController';
@@ -57,9 +57,9 @@ export default class ViewAccount extends React.Component {
                 }, GenericConfig.refreshInterval);
             }
             this.setState({
-                isLoading: false,
+                isLoading: true,
                 modal: [
-                    <Alert type="error">
+                    <Alert type="error" key={0}>
                         { CurrentLanguage().views.settings.account.onError }
                     </Alert>
                 ]
@@ -70,7 +70,7 @@ export default class ViewAccount extends React.Component {
     render() {
         return <View>
             { this.state.modal }
-            { this.state.isLoading && <ContentLoader /> || <ViewContent>
+            { (this.state.isLoading && <ContentLoader />) || <ViewContent>
                 <ContentTitle>
                 {CurrentLanguage().views.settings.account.txtTitle}
                 </ContentTitle>

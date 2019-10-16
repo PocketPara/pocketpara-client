@@ -1,4 +1,7 @@
 {
+    "generic": {
+        "btnRefresh": "Refresh"
+    },
     "views": {
         "login": {
             "boxUsername": "Username",
@@ -43,7 +46,23 @@
                 "onError": "Error connecting to the server. Please check your Internet connection and try again."
             },
             "cars": {
-                "txtTitle": "My cars"
+                "txtTitle": "My cars",
+                "onHasNoCars": "You don't have any cars yet, however you can add or import new ones below.",
+                "onError": "Error connecting to the server. Please check your Internet connection and try again.",
+                "txtAddNew": "Add new",
+                "txtImport": "Import from QR-Code",
+                "addForm": {
+                    "addNew": "Add new car",
+                    "lblCode": "Identification code/name/id",
+                    "lblCodeDefault": "Enter car code here...",
+                    "lblDesc": "Description / Infotext",
+                    "lblDescDefault": "e.g. Ambulance, Doctor, ...",
+                    "btnSave": "Save",
+                    "onSuccess": "The new car was saved!",
+                    "onServerError": "The server denied your request. Check your inputs and try agian.",
+                    "onError": "Error connecting to the server. Please check your Internet connection and try again."
+                },
+                "onDeleteSuccess": "The car was deleted successfully!"
             }
         }
     },
@@ -62,5 +81,10 @@
         "ecgCriteria": "ECG Criteria",
         "algorithms": "Algorithms",
         "scores": "Scores"
+    },
+    "modules": {
+        "qrScanner": {
+            "txtTitle": "Scan QR-Code"
+        }
     }
 }

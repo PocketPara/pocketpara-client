@@ -1,3 +1,11 @@
+/**
+ * @ Author: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
+ * @ Create Time: 2019-10-14 18:34:41
+ * @ Modified by: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
+ * @ Modified time: 2019-10-16 13:54:08
+ * @ Description: Main controller for handling user authentication and registration
+ */
+
 import Axios from "axios";
 import GenericConfig from "../config/GenericConfig";
 

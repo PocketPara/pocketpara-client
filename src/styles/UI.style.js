@@ -88,8 +88,22 @@ export const Button = styled.button`
     &.fullwidth {
         width: 100%;
     }
+    &.fat {
+        font-weight: bold;
+    }
     &.large {
         font-size: 12pt;
+    }
+    &.halfwidth {
+        margin: 0.5em 0.25em;
+        width: calc(50% - 0.5em);
+    }
+
+    &.primary {
+        background-color: var(--var-color-primary);
+    }
+    &.dark {
+        background-color: var(--var-color-dark);
     }
 `;
 
@@ -105,4 +119,15 @@ export const Dropdown = styled.select`
         box-sizing: border-box;
         width: 100%;
     }
+`;
+
+export const InputLabel = styled.label`
+    color: var(--var-color-grey);
+    display: block;
+    font-size: 10pt;
+    margin: 5px 3px;
+    font-weight: bold;
+`;
+export const TextInput = styled.input`
+
 `;
