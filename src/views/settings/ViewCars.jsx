@@ -23,6 +23,8 @@ export default class ViewCars extends React.Component {
     onRefresh = () => {
         this.setState({
             isLoading: true,
+            alerts: [],
+            modals: [],
             cars: []
         });
         this.fetchData(true);
@@ -48,6 +50,45 @@ export default class ViewCars extends React.Component {
             });
     }
 
+    handleMoveUp = index => {
+        if(index > 0) {
+            this.handleExchangeCars(index, index - 1);
+        }
+    }
+    handleMoveDown = index => {
+        if(index < (this.state.cars.length - 1)) {
+            this.handleExchangeCars(index, index + 1);
+        }
+    }
+
+    handleExchangeCars = (index, index2) => {
+        CarController.exchangeOrder(
+            this.state.cars[index].id,
+            this.state.cars[index2].id
+        ).then( () => {
+            this.setState({
+                cars: []
+            });
+            // force refresh
+            this.fetchData(true);
+        }).catch( error => {
+            if(error === CarController.ExchangeErrors.SERVER_ERROR) {
+                this.setState({
+                    alerts: [<Alert type="error" key={0}>
+                        { CurrentLanguage().views.settings.cars.onServerError }
+                    </Alert>]
+                });
+            } else {
+                this.setState({
+                    alerts: [<Alert type="error" key={0}>
+                    { CurrentLanguage().views.settings.cars.onError }
+                    </Alert>]
+                });
+            }
+            
+        })
+    }
+
     getCarTable = (cars) => {
         if(cars === 0) {
             return <i 
@@ -64,16 +105,16 @@ export default class ViewCars extends React.Component {
         let tableRows = [];
         for(let i = 0; i < cars.length; i++) {
             const currentCar = cars[i];
-            tableRows.push(<tr>
+            tableRows.push(<tr key={i}>
                 <td>{currentCar.code}</td>
                 <td>{currentCar.description}</td>
                 <ViewCarsOptionRow>
                     <FontAwesomeIcon icon={ faPen } />
                     <FontAwesomeIcon icon={ faTrash } onClick={()=>{this.handleDeleteClick(currentCar.id)}} />
                     &nbsp;
-                    <FontAwesomeIcon icon={ faArrowUp } />
-                    <FontAwesomeIcon icon={ faArrowDown } />
-                </ViewCarsOptionRow>
+                    { (i > 0) && <FontAwesomeIcon icon={ faArrowUp } onClick={()=>{this.handleMoveUp(i)}}/> }
+                    { (i !== (cars.length - 1)) && <FontAwesomeIcon icon={ faArrowDown } onClick={()=>{this.handleMoveDown(i)}}/> }
+                </ViewCarsOptionRow> 
             </tr>);
         }
         return <Table 
@@ -90,13 +131,13 @@ export default class ViewCars extends React.Component {
         this.fetchData();
     }
 
-    getAddModal = () =>{ 
-        return <AddCarModal key={this.state.modal.length} />;
+    getAddModal = callback =>{ 
+        return <AddCarModal key={this.state.modal.length} onDismiss={callback} />;
     }
 
     handleAddClick = () => {
         this.setState({
-            modal: [...this.state.modal, this.getAddModal()]
+            modal: [...this.state.modal, this.getAddModal( this.onRefresh )]
         });
     }
 
@@ -145,7 +186,7 @@ export default class ViewCars extends React.Component {
                 { CurrentLanguage().views.settings.cars.txtTitle }
             </ContentTitle>
             <Content>
-                <Button className="fullwidth fat" onClick={this.onRefresh}>
+                <Button className="fullwidth fat" onClick={ this.onRefresh }>
                     <FontAwesomeIcon icon={ faSyncAlt } /> { CurrentLanguage().generic.btnRefresh }
                 </Button>
                 { this.state.alerts }

@@ -49,6 +49,7 @@
                 "txtTitle": "My cars",
                 "onHasNoCars": "You don't have any cars yet, however you can add or import new ones below.",
                 "onError": "Error connecting to the server. Please check your Internet connection and try again.",
+                "onServerError":"The sever had trouble responding to your request. Please check your inputs and try again...",
                 "txtAddNew": "Add new",
                 "txtImport": "Import from QR-Code",
                 "addForm": {

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ViewCarsOptionRow = styled.td`
-    text-align: right;
+    text-align: center;
     font-size: 10pt;
     width: calc(40pt + 15px);
 

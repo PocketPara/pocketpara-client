@@ -4,7 +4,7 @@ import Axios from "axios";
  * @ Author: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
  * @ Create Time: 2019-10-16 13:53:09
  * @ Modified by: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
- * @ Modified time: 2019-10-16 22:19:07
+ * @ Modified time: 2019-10-16 23:39:39
  * @ Description: Main controller for managing the current user's cars
  */
 
@@ -14,9 +14,15 @@ export default class CarController {
         REQUEST_ERROR: 0,
         SERVER_ERROR: 1
     };
+
+    static ExchangeErrors = {
+        REQUEST_ERROR: 0,
+        SERVER_ERROR: 1
+    };
+
     /**
-     * Lists all cars of the current user, sorted by order -> name,
-     * if force is true, it will only allow online results
+     * Returns all cars
+     * @param {boolean} force If true, fetch from web, otherwise serve cache
      */
     static async getCars(force = true) {
         return new Promise( (resolve, reject) => {
@@ -45,6 +51,10 @@ export default class CarController {
         });
     }
 
+    /**
+     * 
+     * @param {number} carId The id of the car to delete
+     */
     static async delete(carId) {
         return new Promise( (resolve, reject) => {
             Axios.delete('/car/' + carId)
@@ -57,6 +67,41 @@ export default class CarController {
                 }).catch( error => {
                     reject(this.DeleteErrors.REQUEST_ERROR);
                 });
+        });
+    }
+
+    /**
+     * Swaps the orders of two cars
+     * @param {number} car1Id A number of a car to exchange the order
+     * @param {number} car2Id A number of a car to exchange the order
+     */
+    static async exchangeOrder(car1Id, car2Id) {
+        return new Promise( (resolve, reject) => {
+            let car1, car2;
+            for(let car of JSON.parse(localStorage.getItem('pp_cache_cars'))) {
+                if(car.id === car1Id) {
+                    car1 = car;
+                } else if (car.id === car2Id) {
+                    car2 = car;
+                }
+            }
+            if( !(car1 && car2)) {
+                reject(this.ExchangeErrors.SERVER_ERROR);
+            }
+        
+            Axios.patch('/car/' + car1Id, {
+                order: car2.order
+            }).then( ()=>{
+                Axios.patch('/car/' + car2Id, {
+                    order: car1.order
+                }).then( ()=>{
+                    resolve();
+                }).catch( error => {
+                    reject(this.ExchangeErrors.REQUEST_ERROR);
+                });
+            }).catch( error => {
+                reject(this.ExchangeErrors.REQUEST_ERROR);
+            });
         });
     }
 

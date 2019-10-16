@@ -13,6 +13,7 @@ export const ModalWrapper = styled.div`
     box-sizing: border-box;
     padding: 10px;
     min-height: 30vh;
+    z-index: 750;
 
     h1 {
         display: block;
@@ -38,7 +39,7 @@ export const ModalQuitButton = styled.button`
     position: absolute;
     right: calc(5vw + 10px);
     top: calc(5vw + 10px);
-    z-index: 500;
+    z-index: 751;
     background-color: transparent;
     font-size: 12pt;
     color: var(--var-color-lightGrey);

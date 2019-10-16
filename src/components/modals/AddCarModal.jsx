@@ -2,7 +2,7 @@
  * @ Author: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
  * @ Create Time: 2019-10-16 20:59:53
  * @ Modified by: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
- * @ Modified time: 2019-10-16 21:22:08
+ * @ Modified time: 2019-10-16 23:20:20
  * @ Description: The modal that allows users to add new cars
  */
 
@@ -50,6 +50,9 @@ export default class AddCarModal extends React.Component {
                     let cars = JSON.parse(localStorage.getItem('pp_cache_cars'));
                     cars.push({id,code,description,order});
                     localStorage.setItem('pp_cache_cars', JSON.stringify(cars));
+                }
+                if(this.props.onDismiss) {
+                    this.props.onDismiss();
                 }
             } else {
                 this.setState({
