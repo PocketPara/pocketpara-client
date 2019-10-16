@@ -39,7 +39,11 @@
                 "txtVerifiedTrue": "Verified",
                 "txtVerifiedFalse": "Not Verified",
                 "txtLanguage": "Language",
-                "txtRoles": "Permissions"
+                "txtRoles": "Permissions",
+                "onError": "Error connecting to the server. Please check your Internet connection and try again."
+            },
+            "cars": {
+                "txtTitle": "My cars"
             }
         }
     },

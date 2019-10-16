@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { slideInRight as animLoad } from 'react-animations';
 
 // Views
 export const View = styled.div`
@@ -8,6 +9,7 @@ export const View = styled.div`
     min-height: calc(100vh - 50px);
     box-sizing: border-box;
     color: #ffffff;
+    animation: 0.5s ${keyframes`${animLoad}`};
     position: absolute;
 `;
 
@@ -72,4 +74,35 @@ export const LoaderContainer = styled.div`
     width: 100%;
     box-sizing: border-box;
     padding: 2em 0;
+`;
+
+// Buttons
+export const Button = styled.button`
+    box-sizing: border-box;
+    margin: 0.5em 0;
+
+    background-color: ${ props => props.color || window.themeColor || 'var(--var-color-primary)'};
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
+
+    &.fullwidth {
+        width: 100%;
+    }
+    &.large {
+        font-size: 12pt;
+    }
+`;
+
+export const Dropdown = styled.select`
+    border-radius: var(--var-border-radius);
+    border: 2px solid #dadada;
+    font-family: "Open Sans", sans-serif;
+    padding: 5px 8px;
+    color: #232323;
+    background-color: #ffffff;
+
+    &.fullwidth {
+        box-sizing: border-box;
+        width: 100%;
+    }
 `;
