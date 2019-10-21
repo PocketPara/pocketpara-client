@@ -1,7 +1,10 @@
 {
     "generic": {
         "btnRefresh": "Refresh",
-        "btnSave": "Save"
+        "btnSave": "Save",
+        "btnChange": "Change...",
+        "cycles": ["Dayshift", "Nightshift", "Ambulant shift", "On-Call", "other"],
+        "positions": ["Driver", "Paramedic", "Newbie", "Doctor", "Visitor", "other"]
     },
     "errors": {
         "noInternet": "Error connecting to the server. Please check your Internet connection and try again.",
@@ -98,6 +101,29 @@
                     "onSuccess": "The changes were saved!"
                 },
                 "onDelete": "The keyword was deleted!"
+            }
+        },
+        "stats": {
+            "addShift": {
+                "txtTitle": "Add new shift",
+                "lblKeyword": "Select keyword",
+                "lblDate": "Shift date",
+                "lblCycle": "Time of Shift",
+                "lblCar": "Selected Vehicle",
+                "lblMyPos": "My position",
+                "lblOthers": "Colleagues",
+                "btnAddOther": "Add colleague",
+                "carForm": {
+                    "lblTitle": "Select vehicle"
+                },
+                "crewForm": {
+                    "lblMemberRole": "Position",
+                    "lblFirstname": "First name",
+                    "lblLastname": "Last name",
+                    "lblFind": "My colleagues",
+                    "lblFindInfo": "Click to load"
+                },
+                "onSave": "The shift was saved successfully!"
             }
         }
     },

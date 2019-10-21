@@ -1,5 +1,6 @@
 input[type="text"],
 input[type="email"],
+input[type="date"],
 input[type="password"] {
   border-radius: var(--var-border-radius);
   border: 2px solid var(--var-color-lightGrey);
@@ -7,6 +8,7 @@ input[type="password"] {
   padding: 5px 8px;
   color: #232323;
   margin-bottom: 10px;
+  background-color: #efefef;
 
   &:focus {
     border-color: var(--var-color-primary);

@@ -9,11 +9,12 @@ import Axios from 'axios';
 import { getBaseUrl } from './config/ApiConfig';
 import ViewRegister from './views/ViewRegister';
 import Titlebar from './components/Titlebar';
-import { faUser, faTruck, faBullhorn } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faTruck, faBullhorn, faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 import CurrentLanguage from './helpers/CurrentLanguage';
 import ViewAccount from './views/settings/ViewAccount';
 import ViewCars from './views/settings/ViewCars';
 import ViewKeywords from './views/settings/ViewKeywords';
+import ViewAddShift from './views/stats/ViewAddShift';
 
 // Set up axios config globally
 Axios.defaults.baseURL = getBaseUrl();
@@ -30,6 +31,11 @@ function App() {
         <Switch>
           <Route exact path="/login"></Route>
           <Route exact path="/register"></Route>
+
+          <Route exact path="/stats/add-shift">
+            <Titlebar title={ CurrentLanguage().navigation.addShift } color="#4285f4" icon={ faPlusCircle } />
+          </Route>
+
           { /* Handles titlebars */}
           <Route exact path="/settings/account">
             <Titlebar title={ CurrentLanguage().navigation.manageAccount } color="#05bb69" icon={ faUser } />
@@ -40,15 +46,25 @@ function App() {
           <Route exact path="/settings/keywords">
             <Titlebar title={ CurrentLanguage().navigation.manageKeywords } color="#05bb69" icon={ faBullhorn } />
           </Route>
+
+
         </Switch>
 
         { /* Switch for views */}
         <Switch>
           <Route exact path="/login" component={ ViewLogin } />
           <Route exact path="/register" component={ ViewRegister } />
+
+
+
+          <Route exact path="/stats/add-shift" component={ ViewAddShift } />
+
+
           <Route exact path="/settings/account" component={ ViewAccount } />
           <Route exact path="/settings/cars" component={ ViewCars } />
           <Route exact path="/settings/keywords" component={ ViewKeywords } />
+
+
         </Switch>
 
       </Router>

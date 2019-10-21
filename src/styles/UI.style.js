@@ -35,6 +35,14 @@ export const Content = styled.div`
     padding: 0.5em 0 0.25em 0;
 `;
 
+export const HBox = styled.div`
+    width: ${props => (props.wide && '100%') || '50%'};
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: ${props => (props.right && 'right') || (props.centered && 'center') || 'left'};
+    padding: 5px;
+`;
+
 // Tables
 export const Table = styled.table`
     background-color: #ffffff;
@@ -106,6 +114,9 @@ export const Button = styled.button`
     &.dark {
         background-color: var(--var-color-dark);
     }
+    &.light {
+        background-color: var(--var-color-grey);
+    }
 `;
 
 export const Dropdown = styled.select`
@@ -114,7 +125,7 @@ export const Dropdown = styled.select`
     font-family: "Open Sans", sans-serif;
     padding: 5px 8px;
     color: #232323;
-    background-color: #ffffff;
+    background-color: #efefef;
 
     &.fullwidth {
         box-sizing: border-box;

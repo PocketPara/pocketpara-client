@@ -4,8 +4,8 @@ import { SpoilerButton, SpoilerBody, SpoilerWrapper } from '../styles/components
 export default class Spoiler extends React.Component {
 
     state = {
-        isExpanded: this.props.isExpanded || false,
-        currentSymbol: <span>▼</span>
+        isExpanded: (this.props.isExpanded != null) ? this.props.isExpanded : false,
+        currentSymbol: (this.props.isExpanded === true) ? <span>▲</span> : <span>▼</span>
     }
 
     toggle = () => {

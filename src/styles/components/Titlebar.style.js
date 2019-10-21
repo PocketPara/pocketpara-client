@@ -11,11 +11,12 @@ export const TitlebarWrapper = styled.div`
     top: 0;
     overflow: hidden;
     margin: 0;
-    padding: 0.4em 1em;
+    padding: 0.5em 1em;
     height: 50px;
     z-index: 50;
-`;
+    `;
 export const TitlebarText = styled.div`
+    font-family: 'Raleway', sans-serif;
     font-weight: bold;
     float: right;
 `;
