@@ -9,10 +9,11 @@ import Axios from 'axios';
 import { getBaseUrl } from './config/ApiConfig';
 import ViewRegister from './views/ViewRegister';
 import Titlebar from './components/Titlebar';
-import { faUser, faTruck } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faTruck, faBullhorn } from '@fortawesome/free-solid-svg-icons'
 import CurrentLanguage from './helpers/CurrentLanguage';
 import ViewAccount from './views/settings/ViewAccount';
 import ViewCars from './views/settings/ViewCars';
+import ViewKeywords from './views/settings/ViewKeywords';
 
 // Set up axios config globally
 Axios.defaults.baseURL = getBaseUrl();
@@ -36,6 +37,9 @@ function App() {
           <Route exact path="/settings/cars">
             <Titlebar title={ CurrentLanguage().navigation.manageCars } color="#05bb69" icon={ faTruck } />
           </Route>
+          <Route exact path="/settings/keywords">
+            <Titlebar title={ CurrentLanguage().navigation.manageKeywords } color="#05bb69" icon={ faBullhorn } />
+          </Route>
         </Switch>
 
         { /* Switch for views */}
@@ -44,6 +48,7 @@ function App() {
           <Route exact path="/register" component={ ViewRegister } />
           <Route exact path="/settings/account" component={ ViewAccount } />
           <Route exact path="/settings/cars" component={ ViewCars } />
+          <Route exact path="/settings/keywords" component={ ViewKeywords } />
         </Switch>
 
       </Router>

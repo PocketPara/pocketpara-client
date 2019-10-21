@@ -2,7 +2,7 @@
  * @ Author: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
  * @ Create Time: 2019-10-16 20:59:53
  * @ Modified by: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
- * @ Modified time: 2019-10-16 23:46:48
+ * @ Modified time: 2019-10-21 15:56:39
  * @ Description: The modal that allows users to add new cars
  */
 
@@ -96,7 +96,7 @@ export default class AddCarModal extends React.Component {
                 onChange={ e=>{ this.setState({description:e.target.value})}}
                 className="fullwidth"
                 placeholder={ CurrentLanguage().views.settings.cars.addForm.lblDescDefault }
-                required/>
+                />
             <br/>
             <Button className="fullwidth large fat">
                 <FontAwesomeIcon icon={ faSave } /> &nbsp;

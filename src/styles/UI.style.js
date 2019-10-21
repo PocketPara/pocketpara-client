@@ -81,6 +81,7 @@ export const Button = styled.button`
     box-sizing: border-box;
     margin: 0.5em 0;
 
+    color: ${ props => props.fontcolor || '#ffffff'};
     background-color: ${ props => props.color || window.themeColor || 'var(--var-color-primary)'};
     font-weight: bold;
     font-family: 'Raleway', sans-serif;

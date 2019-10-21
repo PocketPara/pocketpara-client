@@ -1,6 +1,12 @@
 {
     "generic": {
-        "btnRefresh": "Refresh"
+        "btnRefresh": "Refresh",
+        "btnSave": "Save"
+    },
+    "errors": {
+        "noInternet": "Error connecting to the server. Please check your Internet connection and try again.",
+        "serverError": "The sever had trouble responding to your request. Please check your inputs and try again.",
+        "denied": "The server denied your request. Check your inputs and try again"
     },
     "views": {
         "login": {
@@ -71,6 +77,27 @@
                     "onError": "Error connecting to the server. Please check your Internet connection and try again."
                 },
                 "onDeleteSuccess": "The car was deleted successfully!"
+            },
+            "keywords": {
+                "txtTitle": "My keywords",
+                "txtAddNew": "Add new",
+                "txtImport": "Import from QR-Code",
+                "onHasNoKeywords": "You don't have any keywords yet, however you can add or import new ones below.",
+                "onError":"Error connecting to the server. Please check your Internet connection and try again.",
+                "addForm": {
+                    "lblTitle": "Add new keyword",
+                    "lblName": "Keyword",
+                    "lblNameDefault": "Enter keyword here...",
+                    "lblDesc": "Description/Infotext",
+                    "lblDescDefault": "Enter description/note",
+                    "tglEmergency": "Emergency (approaching with siren)",
+                    "lblColor": "Select color",
+                    "onSuccess": "The new keyword was saved!"
+                },
+                "editForm": {
+                    "onSuccess": "The changes were saved!"
+                },
+                "onDelete": "The keyword was deleted!"
             }
         }
     },

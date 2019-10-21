@@ -1,12 +1,11 @@
-import Axios from "axios";
-
 /**
  * @ Author: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
  * @ Create Time: 2019-10-16 13:53:09
  * @ Modified by: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
- * @ Modified time: 2019-10-16 23:47:55
+ * @ Modified time: 2019-10-21 15:18:42
  * @ Description: Main controller for managing the current user's cars
  */
+import Axios from "axios";
 
 export default class CarController {
 
@@ -34,7 +33,7 @@ export default class CarController {
                         localStorage.setItem('pp_cache_cars', JSON.stringify(response.data.cars));
                         resolve(response.data.cars);
                     } else {
-                        reject();
+                        reject(response.data.status);
                     }
 
                 }).catch( error => {

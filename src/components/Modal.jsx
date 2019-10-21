@@ -2,7 +2,7 @@
  * @ Author: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
  * @ Create Time: 2019-10-16 20:33:12
  * @ Modified by: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
- * @ Modified time: 2019-10-16 21:38:11
+ * @ Modified time: 2019-10-21 18:08:12
  * @ Description: A modal element that can be displayed everywhere
  */
 

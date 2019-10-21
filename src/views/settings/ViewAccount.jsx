@@ -2,7 +2,7 @@
  * @ Author: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
  * @ Create Time: 2019-10-15 17:02:07
  * @ Modified by: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
- * @ Modified time: 2019-10-16 21:37:51
+ * @ Modified time: 2019-10-21 17:26:07
  * @ Description: The view for /settings/account
  */
 
@@ -17,6 +17,7 @@ import { faCheckCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons"
 import { RoleList } from '../../styles/views/ViewAccount.style';
 import Spoiler from '../../components/Spoiler';
 import Alert from '../../components/Alert';
+import {Redirect} from 'react-router-dom';
 
 export default class ViewAccount extends React.Component {
 
@@ -64,6 +65,13 @@ export default class ViewAccount extends React.Component {
                     </Alert>
                 ]
             });
+        });
+    }
+
+    handleLogout = () => {
+        localStorage.clear();
+        this.setState({
+            modal: [<Redirect to="/login" />]
         });
     }
 
@@ -122,7 +130,7 @@ export default class ViewAccount extends React.Component {
                             </td>
                         </tr>
                     </tbody></Table>
-                    <Button className="fullwidth large">
+                    <Button className="fullwidth large" onClick={this.handleLogout}>
                         Log out
                     </Button>
                 </Content>

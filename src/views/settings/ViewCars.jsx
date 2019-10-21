@@ -62,9 +62,9 @@ export default class ViewCars extends React.Component {
         }
     }
 
-    handleExchangeCars = (index, index2) => {
+    handleExchangeCars = (index1, index2) => {
         CarController.exchangeOrder(
-            this.state.cars[index].id,
+            this.state.cars[index1].id,
             this.state.cars[index2].id
         ).then( () => {
             this.setState({
@@ -91,7 +91,7 @@ export default class ViewCars extends React.Component {
     }
 
     getCarTable = (cars) => {
-        if(cars === 0) {
+        if(cars.length === 0) {
             return <i 
                 style={{
                     fontSize:'9pt',
@@ -201,10 +201,12 @@ export default class ViewCars extends React.Component {
                 { this.state.alerts }
                 { this.getCarTable(this.state.cars) }
                 <Button className="halfwidth primary" color="" onClick={this.handleAddClick}>
-                    <FontAwesomeIcon icon={ faPlusCircle } /> <br/>{ CurrentLanguage().views.settings.cars.txtAddNew }
+                    <FontAwesomeIcon icon={ faPlusCircle } /> <br/>
+                    { CurrentLanguage().views.settings.cars.txtAddNew }
                 </Button>
                 <Button className="halfwidth dark" color="" onClick={ ()=>{this.setState({scannerActive: true})}}>
-                    <FontAwesomeIcon icon={ faQrcode } /> <br/>{ CurrentLanguage().views.settings.cars.txtImport }
+                    <FontAwesomeIcon icon={ faQrcode } /> <br/>
+                    { CurrentLanguage().views.settings.cars.txtImport }
                 </Button>
                 <QrScannerComponent active={ this.state.scannerActive } />
             </Content>

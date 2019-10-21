@@ -33,7 +33,7 @@ export const ModalBackground = styled.div`
     right: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.9);
 `;
 export const ModalQuitButton = styled.button`
     position: absolute;
