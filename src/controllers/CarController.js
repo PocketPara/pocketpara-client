@@ -2,7 +2,7 @@
  * @ Author: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
  * @ Create Time: 2019-10-16 13:53:09
  * @ Modified by: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
- * @ Modified time: 2019-10-21 15:18:42
+ * @ Modified time: 2019-10-22 18:45:15
  * @ Description: Main controller for managing the current user's cars
  */
 import Axios from "axios";
@@ -20,10 +20,24 @@ export default class CarController {
     };
 
     /**
+     * Removes all inactive cars
+     * @param {Car[]} cars
+     */
+    static removeInactives(cars) {
+        let newCars = [];
+        for(let car of cars) {
+            if(car.active) {
+                newCars.push(car);
+            }
+        }
+        return newCars;
+    }
+
+    /**
      * Returns all cars
      * @param {boolean} force If true, fetch from web, otherwise serve cache
      */
-    static async getCars(force = true) {
+    static async getCars(force = true, showInactives = false) {
         return new Promise( (resolve, reject) => {
 
             if(force) {
@@ -31,7 +45,11 @@ export default class CarController {
                 .then( response => {
                     if(response.data.status === 'SUCCESS') {
                         localStorage.setItem('pp_cache_cars', JSON.stringify(response.data.cars));
-                        resolve(response.data.cars);
+                        if(!showInactives) {
+                            resolve(this.removeInactives(response.data.cars));
+                        } else {
+                            resolve(response.data.cars);
+                        }
                     } else {
                         reject(response.data.status);
                     }
@@ -41,12 +59,33 @@ export default class CarController {
                 });
             } else {
                 if(localStorage.getItem('pp_cache_cars') != null) {
-                    resolve(JSON.parse(localStorage.getItem('pp_cache_cars')));
+                    const cacheCars = JSON.parse(localStorage.getItem('pp_cache_cars'));
+                    if(!showInactives) {
+                        resolve(this.removeInactives(cacheCars));
+                    } else {
+                        resolve(cacheCars);
+                    }
                 } else {
-                    resolve(this.getCars(true));
+                    resolve(this.getCars(true, showInactives));
                 }
             }
 
+        });
+    }
+
+    static async getCar(id, force = false) {
+        return new Promise((resolve, reject) => {
+            this.getCars(force, true)
+                .then( cars => {
+                    for(let car of cars) {
+                        if(car.id === id) {
+                            resolve(car);
+                        }
+                    }
+                    reject(null);
+                }).catch( error => {
+                    reject(error);
+                });
         });
     }
 

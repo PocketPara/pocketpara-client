@@ -9,12 +9,13 @@ import Axios from 'axios';
 import { getBaseUrl } from './config/ApiConfig';
 import ViewRegister from './views/ViewRegister';
 import Titlebar from './components/Titlebar';
-import { faUser, faTruck, faBullhorn, faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faTruck, faBullhorn, faPlusCircle, faAmbulance } from '@fortawesome/free-solid-svg-icons'
 import CurrentLanguage from './helpers/CurrentLanguage';
 import ViewAccount from './views/settings/ViewAccount';
 import ViewCars from './views/settings/ViewCars';
 import ViewKeywords from './views/settings/ViewKeywords';
 import ViewAddShift from './views/stats/ViewAddShift';
+import ViewMyShifts from './views/stats/ViewMyShifts';
 
 // Set up axios config globally
 Axios.defaults.baseURL = getBaseUrl();
@@ -34,6 +35,9 @@ function App() {
 
           <Route exact path="/stats/add-shift">
             <Titlebar title={ CurrentLanguage().navigation.addShift } color="#4285f4" icon={ faPlusCircle } />
+          </Route>
+          <Route exact path="/stats/my-shifts">
+            <Titlebar title={ CurrentLanguage().navigation.myShifts } color="#4285f4" icon={ faAmbulance } />
           </Route>
 
           { /* Handles titlebars */}
@@ -58,6 +62,7 @@ function App() {
 
 
           <Route exact path="/stats/add-shift" component={ ViewAddShift } />
+          <Route exact path="/stats/my-shifts" component={ ViewMyShifts } />
 
 
           <Route exact path="/settings/account" component={ ViewAccount } />

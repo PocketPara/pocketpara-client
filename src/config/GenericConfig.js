@@ -28,6 +28,7 @@ const GenericConfig = {
     "#607D8B",
     "#232323",
     "#808080",
-  ]
+  ],
+
 };
 export default GenericConfig;

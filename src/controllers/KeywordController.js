@@ -2,7 +2,7 @@
  * @ Author: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
  * @ Create Time: 2019-10-21 15:13:07
  * @ Modified by: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
- * @ Modified time: 2019-10-21 18:32:52
+ * @ Modified time: 2019-10-22 17:40:55
  * @ Description: Main controller for managing the current user's keywords
  */
 import Axios from "axios";
@@ -24,7 +24,10 @@ export default class KeywordController {
                 Axios.get('/keyword')
                     .then( response => {
                         if(response.data.status === 'SUCCESS') {
-                            localStorage.setItem('pp_cache_keywords', JSON.stringify(response.data.keywords));
+                            localStorage.setItem(
+                                'pp_cache_keywords', 
+                                JSON.stringify(response.data.keywords)
+                            );
                             resolve(response.data.keywords);
                         } else {
                             reject(response.data.status);

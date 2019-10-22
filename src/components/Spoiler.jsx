@@ -17,15 +17,16 @@ export default class Spoiler extends React.Component {
 
     render() {
         return <SpoilerWrapper className={(this.props.fullwidth) ? 'fullwidth' : ''}>
+            { this.state.isExpanded && <SpoilerBody noTopBorder={this.props.noTopBorder}>
+                {this.props.children}
+            </SpoilerBody> }
             <SpoilerButton 
+                style={this.props.btnStyle||{}}
                 isExpanded={this.state.isExpanded}
                 onClick={this.toggle} 
                 color={this.props.color} >
                 {this.state.currentSymbol || 'Toggle'}
             </SpoilerButton>
-            { this.state.isExpanded && <SpoilerBody>
-                {this.props.children}
-            </SpoilerBody> }
         </SpoilerWrapper>
     }
 }

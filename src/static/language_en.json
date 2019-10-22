@@ -4,7 +4,9 @@
         "btnSave": "Save",
         "btnChange": "Change...",
         "cycles": ["Dayshift", "Nightshift", "Ambulant shift", "On-Call", "other"],
-        "positions": ["Driver", "Paramedic", "Newbie", "Doctor", "Visitor", "other"]
+        "positions": ["Driver", "Paramedic", "Emergency Paramedic", "Nurse", "Doctor", "Newbie", "Visitor", "other"],
+        "weekdays": ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+        "months": ["January","February","March","April","June","July","August","September","October","November","December"]
     },
     "errors": {
         "noInternet": "Error connecting to the server. Please check your Internet connection and try again.",
@@ -124,6 +126,9 @@
                     "lblFindInfo": "Click to load"
                 },
                 "onSave": "The shift was saved successfully!"
+            },
+            "listShifts": {
+                "lblTitle": "My shifts"
             }
         }
     },

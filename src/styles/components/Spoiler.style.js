@@ -15,16 +15,20 @@ export const SpoilerButton = styled.div`
     padding: 2px;
     text-align: center;
     border-radius: var(--var-border-radius);
-    border-bottom-left-radius: ${props => props.isExpanded ? '0' : 'var(--var-border-radius)'};
-    border-bottom-right-radius: ${props => props.isExpanded ? '0' : 'var(--var-border-radius)'};
     font-weight: bold;
+
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     font-size: 10pt;
+    border-top-left-radius: ${props => (props.isExpanded && '0px') || 'var(--var-border-radius)' };
+    border-top-right-radius: ${props => (props.isExpanded && '0px') || 'var(--var-border-radius)'};
 `;
 export const SpoilerBody = styled.div`
     border: 2px solid #dadada;
-    border-top: none;
     padding: 5px;
-    border-radius: var(--var-border-radius);
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+    border-radius: ${props => (props.noTopBorder && '0px')||'var(--var-border-radius)'};
+
+    
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 `;
