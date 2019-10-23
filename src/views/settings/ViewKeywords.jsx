@@ -2,7 +2,7 @@
  * @ Author: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
  * @ Create Time: 2019-10-21 15:05:41
  * @ Modified by: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
- * @ Modified time: 2019-10-21 19:03:18
+ * @ Modified time: 2019-10-22 19:24:58
  * @ Description: The view that lets users manage their keywords
  */
 
@@ -13,7 +13,7 @@ import CurrentLanguage from '../../helpers/CurrentLanguage';
 import KeywordController from '../../controllers/KeywordController';
 import Alert from '../../components/Alert';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSyncAlt, faPlusCircle, faQrcode, faPen, faTrash, faArrowUp, faArrowDown, faCircle, faShippingFast } from '@fortawesome/free-solid-svg-icons';
+import { faSyncAlt, faPlusCircle, faQrcode, faPen, faTrash, faArrowUp, faArrowDown, faShippingFast } from '@fortawesome/free-solid-svg-icons';
 import { ViewCarsOptionRow } from '../../styles/views/ViewCars.style';
 import AddKeywordModal from '../../components/modals/AddKeywordModal';
 import Axios from 'axios';

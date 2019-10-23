@@ -2,7 +2,7 @@
  * @ Author: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
  * @ Create Time: 2019-10-14 18:34:41
  * @ Modified by: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
- * @ Modified time: 2019-10-16 13:54:08
+ * @ Modified time: 2019-10-23 22:46:31
  * @ Description: Main controller for handling user authentication and registration
  */
 
@@ -49,6 +49,7 @@ export default class AuthenticationController {
                     case 'SUCCESS':
                         // save in localstorage
                         localStorage.setItem('pp_token', response.data.token);
+                        localStorage.setItem('pp_language', response.data.language);
                         Axios.defaults.headers.common['auth'] = response.data.token;
                         resolve();
                         break;

@@ -1,4 +1,6 @@
 {
+    "langCode": "en",
+    "langName": "English",
     "generic": {
         "btnRefresh": "Refresh",
         "btnSave": "Save",
@@ -103,6 +105,10 @@
                     "onSuccess": "The changes were saved!"
                 },
                 "onDelete": "The keyword was deleted!"
+            },
+            "app": {
+                "btnClearCache": "Clear cache (may solve some bugs)",
+                "onCacheCleared": "The cache was cleared. You may need to re-open some forms to load data again."
             }
         },
         "stats": {
@@ -128,7 +134,13 @@
                 "onSave": "The shift was saved successfully!"
             },
             "listShifts": {
-                "lblTitle": "My shifts"
+                "lblTitle": "My shifts",
+                "btnAddMission": "Add call"
+            },
+            "addMission": {
+                "lblTitle": "Add new call",
+                "lblInitialCode": "Alarmed keyword",
+                "lblEndCode": "Updated keyword"
             }
         }
     },
@@ -146,7 +158,8 @@
         "tools": "Tools",
         "ecgCriteria": "ECG Criteria",
         "algorithms": "Algorithms",
-        "scores": "Scores"
+        "scores": "Scores",
+        "_addMission": "Add call"
     },
     "modules": {
         "qrScanner": {

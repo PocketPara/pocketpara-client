@@ -162,10 +162,10 @@ export default class ViewAddShift extends React.Component {
         return <View>
                 {this.state.modals}
             { (this.state.isLoading && <ContentLoader />) ||<ViewContent>
-                {this.state.alerts}
                 <ContentTitle>
                 {CurrentLanguage().views.stats.addShift.txtTitle}
                 </ContentTitle>
+                {this.state.alerts}
                 <Content>
                     <HBox left>
                         <InputLabel>
