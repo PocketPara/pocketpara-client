@@ -2,7 +2,7 @@
  * @ Author: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
  * @ Create Time: 2019-10-14 22:21:09
  * @ Modified by: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
- * @ Modified time: 2019-10-14 23:56:00
+ * @ Modified time: 2019-11-10 22:53:29
  * @ Description: The main navigation (that pops out on the left side)
  *                also redirects if user is logged out, since its only on internal sites
  */
@@ -12,7 +12,7 @@ import { Redirect, withRouter } from 'react-router-dom';
 import { NavigationWrapper, NavigationShadowToggleBox, NavigationLogo, NavigationOptionList, NavigationGroup, NavigationItem } from '../styles/components/Navigation.style';
 import Logo from "../assets/rdicon_512-blue.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChartArea, faPlusCircle, faAmbulance, faChartPie, faSearch, faCogs, faUser, faTruck, faBullhorn, faCog, faNotesMedical, faHeartbeat, faTasks, faHatWizard } from '@fortawesome/free-solid-svg-icons';
+import { faChartArea, faPlusCircle, faAmbulance, faChartPie, faSearch, faCogs, faUser, faTruck, faBullhorn, faCog, faNotesMedical, faHeartbeat, faTasks, faHatWizard, faTags } from '@fortawesome/free-solid-svg-icons';
 import CurrentLanguage from "../helpers/CurrentLanguage";
 
 class Navigation extends React.Component {
@@ -81,6 +81,10 @@ class Navigation extends React.Component {
                 <NavigationItem onClick={()=>{this.navigateTo("/settings/keywords") }} bgColor="#00d274">
                     <div><FontAwesomeIcon icon={ faBullhorn } /></div>
                     <span>{ CurrentLanguage().navigation.manageKeywords }</span>
+                </NavigationItem>
+                <NavigationItem onClick={()=>{this.navigateTo("/settings/tags") }} bgColor="#00d274">
+                    <div><FontAwesomeIcon icon={ faTags } /></div>
+                    <span>{ CurrentLanguage().navigation.manageTags }</span>
                 </NavigationItem>
                 <NavigationItem onClick={()=>{this.navigateTo("/settings/app") }} bgColor="#00d274">
                     <div><FontAwesomeIcon icon={ faCog } /></div>

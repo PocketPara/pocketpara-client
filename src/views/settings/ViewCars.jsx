@@ -1,3 +1,11 @@
+/**
+ * @ Author: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
+ * @ Create Time: 2019-10-16 12:50:50
+ * @ Modified by: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
+ * @ Modified time: 2019-11-10 22:57:03
+ * @ Description:  View for managing cars
+ */
+
 import React from 'react';
 import { View, ViewContent, ContentTitle, Content, Button, Table } from '../../styles/UI.style';
 import ContentLoader from '../../components/Loader';
@@ -6,7 +14,6 @@ import CarController from '../../controllers/CarController';
 import Alert from '../../components/Alert';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faSyncAlt, faPlusCircle, faQrcode, faPen, faTrash, faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
-import QrScannerComponent from '../../components/QrScanner';
 import AddCarModal from '../../components/modals/AddCarModal';
 import { ViewCarsOptionRow } from '../../styles/views/ViewCars.style';
 import EditCarModal from '../../components/modals/EditCarModal';
@@ -15,7 +22,6 @@ export default class ViewCars extends React.Component {
 
     state = {
         isLoading: true,
-        scannerActive: false,
         cars: [],
         modal: [],
         alerts: []
@@ -208,7 +214,6 @@ export default class ViewCars extends React.Component {
                     <FontAwesomeIcon icon={ faQrcode } /> <br/>
                     { CurrentLanguage().views.settings.cars.txtImport }
                 </Button>
-                <QrScannerComponent active={ this.state.scannerActive } />
             </Content>
             </ViewContent>}
         </View>

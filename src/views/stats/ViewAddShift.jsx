@@ -86,7 +86,7 @@ export default class ViewAddShift extends React.Component {
                 onFinish={ newMember => {
                     this.setState({
                         crew: [...this.state.crew, {
-                            role: newMember.roleIndex,
+                            role: newMember.role,
                             firstname: newMember.firstname,
                             lastname: newMember.lastname
                         }],
@@ -131,7 +131,7 @@ export default class ViewAddShift extends React.Component {
             date: this.state.date,
             cycle: CurrentLanguage().generic.cycles.indexOf(this.state.cycle),
             carId: this.state.carId,
-            myRole: CurrentLanguage().generic.positions.indexOf(this.state.position),
+            myRole: this.state.position,
             crew: JSON.stringify(this.state.crew)
         }).then( response => {
             console.log(response)

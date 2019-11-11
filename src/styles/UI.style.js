@@ -103,6 +103,9 @@ export const Button = styled.button`
     &.large {
         font-size: 12pt;
     }
+    &.small {
+        font-size: 9pt;
+    }
     &.halfwidth {
         margin: 0.5em 0.25em;
         width: calc(50% - 0.5em);

@@ -2,7 +2,7 @@
  * @ Author: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
  * @ Create Time: 2019-10-21 22:21:56
  * @ Modified by: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
- * @ Modified time: 2019-10-21 23:04:33
+ * @ Modified time: 2019-11-11 21:01:19
  * @ Description: Modal for adding a crew person
  */
 
@@ -40,7 +40,7 @@ export default class CrewPersonAddModal extends React.Component {
         this.props.onFinish({
             firstname: this.state.firstname,
             lastname: this.state.lastname,
-            roleIndex: CurrentLanguage().generic.positions.indexOf(this.state.role)
+            role: this.state.role
         });
         // hide
         this.setState({ isActive: false });

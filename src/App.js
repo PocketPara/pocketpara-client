@@ -9,7 +9,7 @@ import Axios from 'axios';
 import { getBaseUrl } from './config/ApiConfig';
 import ViewRegister from './views/ViewRegister';
 import Titlebar from './components/Titlebar';
-import { faUser, faTruck, faBullhorn, faPlusCircle, faAmbulance, faCog, faHome, faPlusSquare } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faTruck, faBullhorn, faPlusCircle, faAmbulance, faCog, faHome, faPlusSquare, faTags } from '@fortawesome/free-solid-svg-icons'
 import CurrentLanguage from './helpers/CurrentLanguage';
 import ViewAccount from './views/settings/ViewAccount';
 import ViewCars from './views/settings/ViewCars';
@@ -18,6 +18,7 @@ import ViewAddShift from './views/stats/ViewAddShift';
 import ViewMyShifts from './views/stats/ViewMyShifts';
 import ViewApp from './views/settings/ViewApp';
 import ViewAddMission from './views/stats/ViewAddMission';
+import ViewTags from './views/settings/ViewTags';
 
 // Set up axios config globally
 Axios.defaults.baseURL = getBaseUrl();
@@ -58,6 +59,9 @@ function App() {
           <Route exact path="/settings/keywords">
             <Titlebar title={ CurrentLanguage().navigation.manageKeywords } color="#05bb69" icon={ faBullhorn } />
           </Route>
+          <Route exact path="/settings/tags">
+            <Titlebar title={ CurrentLanguage().navigation.manageTags } color="#05bb69" icon={ faTags } />
+          </Route>
           <Route exact path="/settings/app">
             <Titlebar title={ CurrentLanguage().navigation.appSettings } color="#05bb69" icon={ faCog } />
           </Route>
@@ -80,6 +84,7 @@ function App() {
           <Route exact path="/settings/account" component={ ViewAccount } />
           <Route exact path="/settings/cars" component={ ViewCars } />
           <Route exact path="/settings/keywords" component={ ViewKeywords } />
+          <Route exact path="/settings/tags" component={ ViewTags } />
           <Route exact path="/settings/app" component={ ViewApp } />
 
 

@@ -2,7 +2,7 @@
  * @ Author: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
  * @ Create Time: 2019-10-22 16:54:43
  * @ Modified by: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
- * @ Modified time: 2019-10-24 00:22:36
+ * @ Modified time: 2019-11-11 21:06:44
  * @ Description: The view that lists all shifts
  */
 
@@ -76,10 +76,11 @@ export default class ViewMyShifts extends React.Component {
                 return keyword;
             }
         }
+
     };
 
     renderMissionItem = (mission, key) => {
-        const keyword = this.getKeywordById(mission.keywordId);
+        const keyword = this.getKeywordById(mission.keywordId) ||{name:'?',color:'#000000'};
         const keywordUpdate = this.getKeywordById(mission.keywordUpdateId);
         const keywordHasChanged = mission.keywordId !== mission.keywordUpdateId;
         return <MyShiftsMissionRow key={key}>
@@ -217,37 +218,52 @@ export default class ViewMyShifts extends React.Component {
 
     getPositionData = crewMember => {
         let icon;
-        switch(crewMember.role) {
+        switch(crewMember.role.toLowerCase()) {
             // driver
-            case 0:
+            case 'driver':
+            case 'fahrer':
                 icon = <FontAwesomeIcon icon={ faTaxi} />;
                 break;
             // paramedic 
-            case 1:
+            case 'paramedic':
+            case 'rettungssanitäter':
+            case 'rettungsassistent':
                 icon = <FontAwesomeIcon icon={ faWalking } />;
                 break;
             // emergency paramedic
-            case 2:
+            case 'emergency paramedic':
+            case 'notfallsanitäter':
+            case 'notfallsanitäter nka':
+            case 'notfallsanitäter nkv':
+            case 'notfallsanitäter nki':
                 icon= <FontAwesomeIcon icon={ faRunning} />;
                 break;
             // nurse
-            case 3:
+            case 'nurse':
+            case 'pflege':
+            case 'pflegekraft':
                 icon = <FontAwesomeIcon icon={ faUserNurse } />;
                 break;
             // doctor
-            case 4:
+            case 'doctor':
+            case 'arzt':
+            case 'notarzt':
                 icon = <FontAwesomeIcon icon={ faUserMd } />;
                 break;
             // newbie
-            case 5:
+            case 'newbie':
+            case 'azubi':
                 icon = <FontAwesomeIcon icon={ faBaby } />;
                 break;
             // visitor
-            case 6:
+            case 'visitor':
+            case 'schnupperdienst':
+            case 'besucher':
                 icon = <FontAwesomeIcon icon={ faBlind } />;
                 break;
             // other
-            case 7:
+            case 'other':
+            case 'sonstig':
                 icon = <FontAwesomeIcon icon={ faUserSecret } />;
                 break;
             default:

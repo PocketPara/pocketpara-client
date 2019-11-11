@@ -6,7 +6,7 @@
         "btnSave": "Save",
         "btnChange": "Change...",
         "cycles": ["Dayshift", "Nightshift", "Ambulant shift", "On-Call", "other"],
-        "positions": ["Driver", "Paramedic", "Emergency Paramedic", "Nurse", "Doctor", "Newbie", "Visitor", "other"],
+        "positions": ["Driver", "Paramedic", "EMT", "Nurse", "Doctor", "Newbie", "Visitor", "other"],
         "weekdays": ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
         "months": ["January","February","March","April","June","July","August","September","October","November","December"]
     },
@@ -85,6 +85,18 @@
                 },
                 "onDeleteSuccess": "The car was deleted successfully!"
             },
+            "tags": {
+                "txtTitle": "My Tags",
+                "txtAddNew": "Add new Tag",
+                "txtImport": "Import from QR-Code",
+                "onHasNoTags": "You don' have any tags yet, however you can add or import new ones below.",
+                "addForm": {
+                    "lblTitle": "Add new tag",
+                    "lblName": "Text",
+                    "lblNameDefault": "Enter tag name...",
+                    "onSuccess": "The new tag was saved!"
+                }
+            },
             "keywords": {
                 "txtTitle": "My keywords",
                 "txtAddNew": "Add new",
@@ -140,7 +152,8 @@
             "addMission": {
                 "lblTitle": "Add new call",
                 "lblInitialCode": "Alarmed keyword",
-                "lblEndCode": "Updated keyword"
+                "lblEndCode": "Updated keyword",
+                "lblNoChange": "No change"
             }
         }
     },
@@ -153,6 +166,7 @@
         "settings": "Settings",
         "manageAccount": "Manage Account",
         "manageCars": "Manage Cars",
+        "manageTags": "Manage Tags",
         "manageKeywords": "Manage Keywords",
         "appSettings": "App Settings",
         "tools": "Tools",

@@ -2,7 +2,7 @@
  * @ Author: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
  * @ Create Time: 2019-10-16 20:59:53
  * @ Modified by: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
- * @ Modified time: 2019-10-21 15:56:39
+ * @ Modified time: 2019-11-11 20:18:00
  * @ Description: The modal that allows users to add new cars
  */
 
