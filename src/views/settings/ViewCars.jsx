@@ -2,7 +2,7 @@
  * @ Author: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
  * @ Create Time: 2019-10-16 12:50:50
  * @ Modified by: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
- * @ Modified time: 2019-11-10 22:57:03
+ * @ Modified time: 2019-11-11 23:56:30
  * @ Description:  View for managing cars
  */
 
@@ -180,7 +180,7 @@ export default class ViewCars extends React.Component {
                 if(error === CarController.DeleteErrors.REQUEST_ERROR) {
                     this.setState({
                         alerts: [<Alert key={0} type="success">
-                            { CurrentLanguage().views.settings.cars.onDeleteSuccess }
+                            { CurrentLanguage().views.settings.cars.onError }
                         </Alert>]
                     });
                 }

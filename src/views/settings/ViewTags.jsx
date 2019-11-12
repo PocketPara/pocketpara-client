@@ -2,7 +2,7 @@
  * @ Author: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
  * @ Create Time: 2019-11-10 22:55:53
  * @ Modified by: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
- * @ Modified time: 2019-11-11 20:06:48
+ * @ Modified time: 2019-11-11 23:59:20
  * @ Description: View for managing Tags
  */
 
@@ -99,6 +99,39 @@ export default class ViewTags extends React.Component {
 		if(index < (this.state.tags.length - 1)) {
 			this.handleExchangeTags(index, index + 1);
 		}
+	}
+
+	handleDeleteClick = id =>  {
+		TagController.delete(id)
+			.then( () => {
+				// show success
+				this.setState({
+					alerts: [<Alert type="success" key={0}>
+						{ CurrentLanguage().views.settings.tags.addForm.onDeleted }
+					</Alert>]
+				});
+				// serach cache for the item
+				if(localStorage.getItem('pp_cache_tags') != null) {
+					let tags = JSON.parse(localStorage.getItem('pp_cache_tags'));
+					for(let i = 0; i < tags.length; i++) {
+						// find the tag in the cache
+						if(tags[i].id === id) {
+							// delete it
+							tags.splice(i, 1);
+						}
+					}
+
+					// save the new cache
+					localStorage.setItem('pp_cache_tags', JSON.stringify(tags));
+					this.setState({ tags });
+				}
+			}).catch(error => {
+				this.setState({
+					alerts: [<Alert type="error" key={0}>
+						{ CurrentLanguage().errors.noInternet }
+					</Alert>]
+				});
+			})
 	}
 
 	/**

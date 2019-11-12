@@ -146,3 +146,8 @@ export const InputLabel = styled.label`
 export const TextInput = styled.input`
 
 `;
+
+export const TinyText = styled.span`
+    color: var(--var-color-grey);
+    font-size: 10pt;
+`;

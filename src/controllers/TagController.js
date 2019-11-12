@@ -2,7 +2,7 @@
  * @ Author: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
  * @ Create Time: 2019-11-10 23:04:53
  * @ Modified by: Lukas Fend 'Lksfnd' <fendlukas@pm.me>
- * @ Modified time: 2019-11-11 21:17:42
+ * @ Modified time: 2019-11-11 23:55:45
  * @ Description:  Main controller for manageing the current user's Tags (events)
  */
 import Axios from "axios";
@@ -120,6 +120,26 @@ export default class TagController {
 			}).catch( error => {
 					reject(this.ExchangeErrors.REQUEST_ERROR);
 			});
+		});
+	}
+
+	/**
+	 * Deletes/deactivates a user tag
+	 *  
+	 * @param {number} tagId The id of the tag(user-event)
+	 */
+	static async delete(tagId) {
+		return new Promise( (resolve, reject) => {
+			Axios.delete('/event/' + tagId)
+				.then( response => {
+					if(response.data.status === 'SUCCESS') {
+						resolve(tagId);
+					} else {
+						reject();
+					}
+				}).catch(error => {
+					reject();
+				})
 		});
 	}
 

@@ -13,7 +13,9 @@ export const ModalWrapper = styled.div`
     box-sizing: border-box;
     padding: 10px;
     min-height: 30vh;
+    max-height: 85vh;
     z-index: 750;
+    overflow-y: scroll;
 
     h1 {
         display: block;

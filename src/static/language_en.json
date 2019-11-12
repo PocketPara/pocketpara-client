@@ -94,7 +94,8 @@
                     "lblTitle": "Add new tag",
                     "lblName": "Text",
                     "lblNameDefault": "Enter tag name...",
-                    "onSuccess": "The new tag was saved!"
+                    "onSuccess": "The new tag was saved!",
+                    "onDeleted": "The tag was deleted successfully!"
                 }
             },
             "keywords": {
@@ -153,7 +154,10 @@
                 "lblTitle": "Add new call",
                 "lblInitialCode": "Alarmed keyword",
                 "lblEndCode": "Updated keyword",
-                "lblNoChange": "No change"
+                "lblNoChange": "No change",
+                "keywordForm": {
+                    "lblTitle": "Select keyword"
+                }
             }
         }
     },
