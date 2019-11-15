@@ -1,6 +1,6 @@
 const ApiConfig = {
     PROTOCOL: 'http',
-    HOST: '172.16.4.82',//'10.182.1.55',
+    HOST: 'localhost',
     PORT: '3001'
 };
 export default ApiConfig;
